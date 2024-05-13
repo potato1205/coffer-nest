@@ -1,11 +1,12 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
 
 @Controller('coffer')
 export class CofferController {
     @Get('findAll')
-    findAll() {
+    findAll(@Query() query) {
         // 查询所有coffer信息
-        return 'This action returns all coffers';
+        const { limit, offset } = query;
+        return `This action returns all coffers limit=${limit}, offset=${offset}`;
     }
 
     @Get('findOne/:id')
@@ -17,7 +18,7 @@ export class CofferController {
     @Post('create')
     create(@Body() body) {
         // 创建coffer信息
-        return 'This action adds a new coffer'+ body.name;
+        return 'This action adds a new coffer' + body.name;
     }
 
     @Patch(':id')
