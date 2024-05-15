@@ -1,7 +1,11 @@
 import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { CofferService } from './coffer.service'; 
 
 @Controller('coffer')
 export class CofferController {
+    constructor(private cofferService: CofferService) {
+
+    }
     @Get('findAll')
     findAll(@Query() query) {
         // 查询所有coffer信息
