@@ -25,6 +25,7 @@ export class CofferController {
         return 'This action adds a new coffer' + body.name;
     }
 
+    // 更新
     @Patch(':id')
     update(@Param('id') id: string, @Body() body) {
         // 更新coffer信息
